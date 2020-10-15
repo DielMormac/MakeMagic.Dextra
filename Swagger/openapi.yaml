@@ -1,0 +1,224 @@
+openapi: 3.0.1
+info:
+  title: MakeMagic Dextra
+  description: >-
+    API REST desenvolvida para o teste de backend, com base no exercício Make
+    Magic
+  contact:
+    name: Dextra
+    url: 'http://localhost:54658/swagger'
+    email: diel.mormac@gmail.com
+  version: v1
+paths:
+  /api/v1/character:
+    get:
+      tags:
+        - Character
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+    post:
+      tags:
+        - Character
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddCharacterRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AddCharacterRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AddCharacterRequest'
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/character/{id}':
+    get:
+      tags:
+        - Character
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+    put:
+      tags:
+        - Character
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCharacterRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCharacterRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateCharacterRequest'
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+    delete:
+      tags:
+        - Character
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+components:
+  schemas:
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    AddCharacterRequest:
+      required:
+        - houseId
+        - name
+        - patronus
+        - role
+        - school
+      type: object
+      properties:
+        name:
+          maxLength: 100
+          minLength: 3
+          type: string
+        role:
+          maxLength: 35
+          minLength: 3
+          type: string
+        school:
+          maxLength: 100
+          minLength: 3
+          type: string
+        houseId:
+          maxLength: 24
+          minLength: 24
+          type: string
+        patronus:
+          maxLength: 30
+          minLength: 3
+          type: string
+      additionalProperties: false
+    UpdateCharacterRequest:
+      required:
+        - role
+        - school
+      type: object
+      properties:
+        role:
+          maxLength: 35
+          minLength: 3
+          type: string
+        school:
+          maxLength: 100
+          minLength: 3
+          type: string
+      additionalProperties: false

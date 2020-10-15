@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "f5119f27-8d26-47bc-ad90-0fcf6880222b",
+		"name": "Dextra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Character",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Harry Potter 3\",\r\n    \"role\" : \"Student\",\r\n    \"school\": \"Hogwarts\",\r\n    \"houseId\" : \"5a05e2b252f721a3cf2ea33f\",\r\n    \"patronus\": \"Stunt\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:54659/api/v1/character",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54659",
+					"path": [
+						"api",
+						"v1",
+						"character"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Character",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\" : \"Programmer\",\r\n    \"school\": \"None\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:54659/api/v1/character/{id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54659",
+					"path": [
+						"api",
+						"v1",
+						"character",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Character",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Harry Potter\",\r\n    \"role\" : \"Student\",\r\n    \"school\": \"Hogwarts\",\r\n    \"houseId\" : \"5a05e2b252f721a3cf2ea33f\",\r\n    \"patronus\": \"Stunt\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:54659/api/v1/character/{id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54659",
+					"path": [
+						"api",
+						"v1",
+						"character",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Characters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Harry Potter\",\r\n    \"role\" : \"Student\",\r\n    \"school\": \"Hogwarts\",\r\n    \"houseId\" : \"5a05e2b252f721a3cf2ea33f\",\r\n    \"patronus\": \"Stunt\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:54659/api/v1/character/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54659",
+					"path": [
+						"api",
+						"v1",
+						"character",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Character",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Harry Potter\",\r\n    \"role\" : \"Student\",\r\n    \"school\": \"Hogwarts\",\r\n    \"houseId\" : \"5a05e2b252f721a3cf2ea33f\",\r\n    \"patronus\": \"Stunt\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:54659/api/v1/character/{id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54659",
+					"path": [
+						"api",
+						"v1",
+						"character",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
